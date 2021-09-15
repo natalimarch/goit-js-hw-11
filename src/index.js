@@ -34,7 +34,7 @@ const getImages = async () => {
       docClose: true,
   });
   
-  if (objectJS.page === 2) {
+  if (objectJS.page >= 2) {
     const { height: cardHeight } = document
     .querySelector('.gallery')
     .firstElementChild.getBoundingClientRect();
