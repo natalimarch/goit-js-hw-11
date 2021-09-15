@@ -49,11 +49,11 @@ const getImages = async () => {
     console.log(last);
     console.log(totalHits);
 
-    if (objectJS.page === 1) {
+    if (objectJS.page === 1 && totalHits !== 0) {
       Notiflix.Notify.info(`"Hooray! We found ${totalHits} images.`)
     }
     // console.log(images.length);
-    if (last >= totalHits && last !== 0) {
+    if (last >= totalHits && last !== 0 & images.length !== 0) {
       Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
       refs.loadmoreBtn.setAttribute("hidden", true);
     }
