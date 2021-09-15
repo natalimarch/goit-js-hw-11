@@ -5,7 +5,7 @@ import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // all modules
 import Notiflix from "notiflix";
-import objectJS from './object'
+import objectJS from './js/finder'
 
 
 const refs = {
