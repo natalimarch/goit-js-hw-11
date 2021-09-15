@@ -32,19 +32,25 @@ const getImages = async () => {
       captionDelay: 250,
       docClose: true,
   });
-
-  const { height: cardHeight } = document
-  .querySelector('.gallery')
-  .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-  top: cardHeight * 2,
-  behavior: 'smooth',
-  });
+  
+  if (objectJS.page === 2) {
+    const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+  
+    window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+    });
+  }
 
     last += 40;
     console.log(last);
     console.log(totalHits);
+
+    if (objectJS.page === 1) {
+      Notiflix.Notify.info(`"Hooray! We found ${totalHits} images.`)
+    }
     // console.log(images.length);
     if (last >= totalHits && last !== 0) {
       Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
@@ -72,7 +78,7 @@ function renderGallery(images) {
     const markup = images.map((image => {
         return `<div class="photo-card">
         <a class="gallery__link" href="${image.largeImageURL}">
-        <img src="${image.webformatURL}" alt="${image.tags}" width="350" loading="lazy" />
+        <img class="gallery__image" src="${image.webformatURL}" alt="${image.tags}" width="350" loading="lazy" />
         </a>
         <div class="info">
           <p class="info-item">
